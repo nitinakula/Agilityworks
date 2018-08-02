@@ -1,12 +1,6 @@
 ---
 
-galaxy_info:
-  name: bbaassssiiee.sonar
-  author: Bas Meijer
-  description: SonarQube - Source code quality tool
-  company:
-
-  license: MIT
+ license: MIT
 
   min_ansible_version: 1.9.0
 
