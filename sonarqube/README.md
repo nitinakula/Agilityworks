@@ -1,4 +1,4 @@
-bbaassssiiee.sonar
+sonar
 =========
 
 Sonar is a source-code quality tool.
@@ -37,4 +37,4 @@ Author Information
 ------------------
 
 Bas Meijer
-@bbaassssiiee
+from Github
