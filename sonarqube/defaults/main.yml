@@ -17,7 +17,7 @@ sonarrunner_zipfile: 'sonar-runner-dist-2.4.zip'
 sonarrunner_url: 'http://repo1.maven.org/maven2/org/codehaus/sonar/runner/sonar-runner-dist/2.4/sonar-runner-dist-2.4.zip'
 
 
-sonar_version: 7.2.1
+sonar_version: 6.7.4
 sonar_name: "sonarqube-{{ sonar_version }}"
 sonar_file: "{{ sonar_name }}.zip"
 sonar_url: 'https://sonarsource.bintray.com/Distribution/sonarqube/{{ sonar_file }}'
@@ -25,7 +25,7 @@ sonar_home: /opt/sonar
 sonar_web_javaopts: False
 sonar_web_javaadditionalopts: False
 sonar_path_data: data
-sonar_web_host: http://ec2-18-191-114-229.us-east-2.compute.amazonaws.com
+sonar_web_host: 
 sonar_web_context: /sonar
 sonar_web_port: 9000
 sonar_search_port: 9001
