@@ -1,0 +1,14 @@
+---
+
+# handlers file for actions that are notified: by a play
+- name: 'start postgresql-9.5'
+  become: yes
+  service: name=postgresql-9.5 state=started
+
+- name: 'restart postgresql-9.5'
+  become: yes
+  service: name=postgresql-9.5 state=restarted
+
+- name: 'restart iptables'
+  become: yes
+  service: name=iptables state=restarted

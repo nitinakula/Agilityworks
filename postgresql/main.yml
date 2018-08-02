@@ -1,0 +1,28 @@
+---
+el_postgres_repo: "https://download.postgresql.org/pub/repos/yum/9.5/redhat/rhel-7-x86_64/pgdg-redhat95-9.5-3.noarch.rpm"
+#el_postgres_repo: "https://yum.postgresql.org/9.4/redhat/rhel-6.8-x86_64/pgdg-centos94-9.4-3.noarch.rpm"
+
+#el_postgres_packages:
+ # - postgresql94-server
+  #- postgresql94-contrib
+  #- perl-DBD-Pg
+  #- python-pip
+  #- python-psycopg2
+
+el_postgres_packages:
+  - postgresql
+  - postgresql-server
+  - postgresql-contrib
+  - postgresql-libs
+
+el_postgres_pips:
+  - pexpect
+
+
+el_postgres_jdbc_url: "https://jdbc.postgresql.org/download/postgresql-9.4-1201.jdbc41.jar"
+
+# I never dared changing:
+el_postgres_port: 5432
+
+el_postgres_user: testuser
+el_postgres_pass: testpass

@@ -1,0 +1,4 @@
+---
+el_postgres_user: testuser
+el_postgres_pass: testpass
+el_postgres_mip: {{ip_address}}

@@ -1,0 +1,55 @@
+---
+- name: 'verify the version of your OS.'
+  fail: msg='enterprise undefined'
+  when: ansible_os_family != "RedHat"
+  tags:
+    - postgres
+    - el_postgres_role
+
+- name: 'make sure el_postgres_user and el_postgres_pass are defined.'
+  fail: msg='variables undefined'
+  when:
+    - el_postgres_user is undefined
+    - el_postgres_pass is undefined
+  tags:
+    - postgres
+    - el_postgres_role
+
+- name: 'install the EPEL yum repo'
+  become: yes
+  yum: name=epel-release state=present
+  when: ansible_os_family == "RedHat"
+  tags:
+    - install
+    - postgres
+    - el_postgres_role
+
+- name: 'install the postgres yum repo'
+  become: yes
+  yum: name={{ el_postgres_repo }} state=present
+  when: ansible_os_family == "RedHat"
+  tags:
+    - install
+    - postgres
+    - el_postgres_role
+
+- name: 'install postgres packages'
+  become: yes
+  yum: name={{ item }} state=present
+  with_items: '{{ el_postgres_packages }}'
+  when: ansible_os_family == "RedHat"
+  tags:
+    - install
+    - postgres
+    - el_postgres_role
+
+- name: 'install required libraries'
+  become: yes
+  pip: name={{ item }} state=present
+  with_items:
+    - '{{ el_postgres_pips }}'
+  tags:
+    - install
+    - postgres
+    - el_postgres_role
+    - startslave
