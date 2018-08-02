@@ -1,0 +1,5 @@
+---
+- name: sonar
+  hosts: localhost
+  roles:
+  - { role: sonar, become: yes, become_user: root }
