@@ -16,5 +16,5 @@ el_postgres_jdbc_url: "https://jdbc.postgresql.org/download/postgresql-9.4-1201.
 # I never dared changing:
 el_postgres_port: 5432
 
-el_postgres_user: admin
-el_postgres_pass: admin
+el_postgres_user: postgres
+el_postgres_pass: postgres

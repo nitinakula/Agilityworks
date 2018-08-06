@@ -32,42 +32,8 @@
     - postgresql
     - ubuntu
 
-- name: 'make sure mysql packages, unzip & JRE are installed'
-  become: yes
-  apt: name={{item}} state=installed
-  with_items:
-  - 'default-jre'
-  - 'python'
-  - 'python-mysql'
-  - 'mysql-server'
-  - 'mysql-client'
-  - 'unzip'
-  when: features.mysql and ansible_os_family == "Debian"
-  tags:
-    - sonar
-    - database
-    - mysql
-    - ubuntu
-
-- name: 'Install MySQL-python when sonar needs it'
-  yum: name=MySQL-python state=installed
-  when: features.mysql and ansible_os_family == "RedHat"
-  tags:
-    - sonar
-    - database
-    - mysql
-
 - name: 'sonar could use either postgresql or mysql'
-  service: name=mysql state=started
-  when: features.mysql
-  ignore_errors: yes
-  tags:
-    - sonar
-    - database
-    - mysql
-
-- name: 'sonar could use either postgresql or mysql'
-  service: name=postgresql-9.5 state=started
+  service: name=postgres state=started
   when: features.postgresql
   ignore_errors: yes
   tags:
@@ -113,7 +79,7 @@
 
 - name: 'fix directory for Sonar'
   file: dest={{ sonar_home }} recurse=yes
-        owner=sonar group=sonar
+        state=directory owner=sonar group=sonar 
   tags:
     - sonar
 

@@ -1,5 +1,5 @@
 ---
 - include: dependencies.yml
-- include: runner.yml
+- include: scanner.yml
 - include: plugins.yml
 - include: config.yml

@@ -1,3 +1,4 @@
+
 ---
 - name: 'verify the version of your OS.'
   fail: msg='enterprise undefined'
